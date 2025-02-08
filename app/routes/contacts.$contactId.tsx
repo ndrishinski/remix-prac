@@ -9,7 +9,6 @@ import invariant from "tiny-invariant";
 export const loader = async ({
   params,
 }: LoaderFunctionArgs) => {
-  console.log('called first.5')
   invariant(params.contactId, "Missing contactId param");
   const contact = await getContact(params.contactId);
   if (!contact) {
@@ -19,9 +18,7 @@ export const loader = async ({
 };
 
 export default function Contact() {
-  console.log('called first')
   const { contact } = useLoaderData<typeof loader>();
-  console.log('called second')
 
   return (
     <div id="contact">
